@@ -1,0 +1,13 @@
+version: '3'
+services:
+    neo4j_source:
+        image: 'neo4j:4.0.7-enterprise'
+        environment:
+          - NEO4J_dbms_security_auth__enabled=false
+          - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+          - NEO4J_dbms_connector_bolt_advertised__address=0.0.0.0:8687
+          - NEO4J_apoc_import_file_use__neo4j__config=true
+          - NEO4JLABS_PLUGINS=["apoc"]
+        ports:
+          - 8474:7474
+          - 8687:7687
